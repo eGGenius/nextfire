@@ -1,4 +1,4 @@
-import { firestore, auth, increment } from '../lib/firebase';
+import { firestore, auth, increment, decrement } from '../lib/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
 
 // Allows user to heart or like a post
@@ -22,13 +22,13 @@ export default function Heart({ postRef }) {
   const removeHeart = async () => {
     const batch = firestore.batch();
 
-    batch.update(postRef, { heartCount: increment(-1) });
+    batch.update(postRef, { heartCount: decrement(-1) });
     batch.delete(heartRef);
 
     await batch.commit();
   };
 
-  return heartDoc?.exists ? (
+  return !heartDoc?.exists ? (
     <button onClick={removeHeart}>💔 Unheart</button>
   ) : (
     <button onClick={addHeart}>💗 Heart</button>

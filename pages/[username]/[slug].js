@@ -59,7 +59,7 @@ export default function Post(props) {
   return (
     <main className={styles.container}>
       <Metatags title={post.title} description={post.title} />
-
+      
       <section>
         <PostContent post={post} />
       </section>
@@ -68,6 +68,7 @@ export default function Post(props) {
         <p>
           <strong>{post.heartCount || 0} 🤍</strong>
         </p>
+
         <AuthCheck
           fallback={
             <Link href="/enter">
