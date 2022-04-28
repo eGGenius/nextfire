@@ -3,8 +3,8 @@
     "templates": [
         {
             "type": 1,
-            "title": "Registrie",
-            "description": "Docker image registrie",
+            "title": "Registry",
+            "description": "Docker image registry",
             "categories": [
                 "docker"
             ],
